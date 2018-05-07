@@ -1,0 +1,18 @@
+<input type="file" (change)="fileChangeEvent($event)" />
+
+<div>
+  <image-cropper
+    
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 3"
+      [resizeToWidth]="128"
+      format="jpeg"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"
+      style="max-height: 33vh"
+      [style.display]="cropperReady ? null : 'none'"
+  ></image-cropper>
+</div>
+<img [src]="croppedImage" />
